@@ -1,5 +1,6 @@
 # Neural Style Transfer
 This project is in fulfillment of CSCI-SHU 360 Machine Learning in Spring 2021 at NYU Shanghai.
+
 Group member: Xinyue Liu, Yuejiao Qiu
 
 ## Problem description
@@ -14,3 +15,12 @@ The first model, basic style transfer using IOB-NST algorithms, inputs one speci
 ### Basic style transfer
 Basic style transfer ultilizes a pre-trained VGG19 as the loss network, which includes 16 convolutional and 5 pooling layers. We normalize the network by scaling the weights so that the mean activation of each filter over images and positions is equal to one. And we replace max pooling by average pooling. We also remove the fully connected layer, since we can directly output an image of the same dimensions. According to Gatys et al., we will use {relu1_1, relu2_1, relu3_1, relu4_1, relu5_1} as style layers and {relu4_2} as the content layer. The results are as below.
 ![Alt text](Output/S1-output.png)
+
+### Fast style transfer
+Although the previously-discussed IOB-NST is able to yield pretty impressive results, the efficiency is a big issue because we need to input a new image and go over the iterations every time if we want to use either a new style or content image. Therefore, we build a model to perform real-time style transfer using TransformNet.
+
+The system is as follows. We train an image transformation network to transform input images into output images, and  use a loss network pre-trained, i.e. VGG19, to define perceptual loss functions that measure perceptual differences in content and style between images. The loss network remains fixed during the training process. Detailed architechture is described in the report. The results are shown below, which include multiple fixed style images to variable  content images.
+![Alt text](Output/S2-output.png)
+
+## Summary
+Detailed summary of this project is included in [ML_Final_Paper.pdf](ML_Final_Paper.pdf)
