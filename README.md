@@ -23,4 +23,4 @@ The system is as follows. We train an image transformation network to transform 
 ![Alt text](Output/S2-output.png)
 
 ## Summary
-Detailed summary of this project is included in [ML_Final_Paper.pdf](ML_Final_Paper.pdf)
+Detailed summary of this project is included in [ML_Final_Paper.pdf](ML_Final_Paper.pdf).
